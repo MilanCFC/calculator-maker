@@ -1,7 +1,9 @@
-const readLineSync = require("readline-sync");
+const readLineSync = require('readline-sync');
 
-let numberOne = readLineSync.question("Write your number: ");
+let numberOne = readLineSync.question('Write your number: ');
 
 console.log(numberOne);
 
-console.log("my first change");
+console.log('my first change');
+
+console.log('you are hacked');
