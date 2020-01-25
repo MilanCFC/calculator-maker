@@ -23,3 +23,5 @@ function calculateResult() {
   return result;
 }
 console.log(calculateResult());
+
+// it is done
