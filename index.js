@@ -9,15 +9,17 @@ console.log(operator);
 let numberTwo = readLineSync.question("Write your number: ");
 console.log(numberTwo);
 
-let result = oneBigResult {
- if (operator === "+") {
-     result = numberOne + numberTwo;
- } else if (operator === "-") {
-      result = numberOne - numberTwo;
+function calculateResult() {
+  let result = 0;
+  if (operator === "+") {
+    result = Number(numberOne) + Number(numberTwo);
+  } else if (operator === "-") {
+    result = Number(numberOne) - Number(numberTwo);
   } else if (operator === "/") {
-      result = numberOne / numberTwo;
+    result = Number(numberOne) / Number(numberTwo);
   } else if (operator === "*") {
-      result = numberOne * numberTwo;
+    result = Number(numberOne) * Number(numberTwo);
   }
+  return result;
 }
-console.log(result);
+console.log(calculateResult());
