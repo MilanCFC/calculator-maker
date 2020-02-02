@@ -32,7 +32,7 @@ function validateOperator(selectedOperator) {
 function getOperator() {
   let selectedOperator = readLineSync.question("Write your operator: ");
   console.log(selectedOperator);
-  if (validateOperator() === false) {
+  if (validateOperator(selectedOperator) === false) {
     return getOperator();
   }
   return selectedOperator;
@@ -52,3 +52,5 @@ function calculateResult() {
   return result;
 }
 console.log(calculateResult());
+
+//v2 is done
