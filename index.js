@@ -1,29 +1,42 @@
 const readLineSync = require("readline-sync");
 
-let numberOne = Number(readLineSync.question("Write your number: "));
-console.log(numberOne);
-
-function validateNumberOne(numberOne) {
-  if (isNaN(numberOne)) {
-    return "Slow down! This is not a number.";
+function validateNumber(number) {
+  if (isNaN(number)) {
+    console.log("\x1b[31m", "Slow down! This is not a number.");
+    return false;
   }
-  return numberOne;
+  return true;
 }
-console.log(validateNumberOne(numberOne));
 
-let operator = readLineSync.question("Write your operator: ");
-console.log(operator);
-
-let numberTwo = Number(readLineSync.question("Write your number: "));
-console.log(numberTwo);
-
-function validateNumberTwo(numberTwo) {
-  if (isNaN(numberTwo)) {
-    return "Slow down! This is not a number.";
+function getNumber(order) {
+  let number = Number(readLineSync.question(`Write your ${order} number: `));
+  console.log(number);
+  if (validateNumber(number) === false) {
+    return getNumber(order);
   }
-  return numberTwo;
+  return number;
 }
-console.log(validateNumberTwo(numberTwo));
+let numberOne = getNumber("first");
+let operator = getOperator();
+let numberTwo = getNumber("second");
+
+function validateOperator(selectedOperator) {
+  let arrayOperator = ["+", "-", "*", "/"];
+  if (arrayOperator.includes(selectedOperator)) {
+    return true;
+  }
+  console.log("\x1b[31m", "Slow down! This is not a valid operator.");
+  return false;
+}
+
+function getOperator() {
+  let operator = readLineSync.question("Write your operator: ");
+  console.log(operator);
+  if (validateOperator === false) {
+    return getOperator();
+  }
+  return operator;
+}
 
 function calculateResult() {
   let result = 0;
