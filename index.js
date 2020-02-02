@@ -2,7 +2,7 @@ const readLineSync = require("readline-sync");
 
 function validateNumber(number) {
   if (isNaN(number)) {
-    console.log("\x1b[31m", "Slow down! This is not a number.");
+    console.log("\x1b[31m", "Slow down! This is not a number.", "\x1b[0m");
     return false;
   }
   return true;
@@ -25,7 +25,11 @@ function validateOperator(selectedOperator) {
   if (arrayOperator.includes(selectedOperator)) {
     return true;
   }
-  console.log("\x1b[31m", "Slow down! This is not a valid operator.");
+  console.log(
+    "\x1b[31m",
+    "Slow down! This is not a valid operator.",
+    "\x1b[0m"
+  );
   return false;
 }
 
