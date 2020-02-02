@@ -30,12 +30,12 @@ function validateOperator(selectedOperator) {
 }
 
 function getOperator() {
-  let operator = readLineSync.question("Write your operator: ");
-  console.log(operator);
-  if (validateOperator === false) {
+  let selectedOperator = readLineSync.question("Write your operator: ");
+  console.log(selectedOperator);
+  if (validateOperator() === false) {
     return getOperator();
   }
-  return operator;
+  return selectedOperator;
 }
 
 function calculateResult() {
