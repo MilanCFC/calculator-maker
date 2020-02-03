@@ -43,6 +43,32 @@ let numberTwo = getNumber("second");
 
 function calculateResult(numberOne, operator, numberTwo) {
   let result = 0;
+  switch (operator) {
+    case "+":
+      result = numberOne + numberTwo;
+      break;
+    case "-":
+      result = numberOne - numberTwo;
+      break;
+    case "*":
+      result = numberOne * numberTwo;
+      break;
+    case "/":
+      result = numberOne / numberTwo;
+      break;
+  }
+  return result;
+}
+console.log(
+  "Result is:",
+  "\x1b[32m",
+  calculateResult(numberOne, operator, numberTwo),
+  "\x1b[0m"
+);
+
+/*
+function calculateResult(numberOne, operator, numberTwo) {
+  let result = 0;
   if (operator === "+") {
     result = numberOne + numberTwo;
   } else if (operator === "-") {
@@ -60,3 +86,4 @@ console.log(
   calculateResult(numberOne, operator, numberTwo),
   "\x1b[0m"
 );
+*/
