@@ -10,15 +10,11 @@ function validateNumber(number) {
 
 function getNumber(order) {
   let number = Number(readLineSync.question(`Write your ${order} number: `));
-  console.log(number);
   if (validateNumber(number) === false) {
     return getNumber(order);
   }
   return number;
 }
-let numberOne = getNumber("first");
-let operator = getOperator();
-let numberTwo = getNumber("second");
 
 function validateOperator(selectedOperator) {
   let arrayOperator = ["+", "-", "*", "/"];
@@ -35,14 +31,17 @@ function validateOperator(selectedOperator) {
 
 function getOperator() {
   let selectedOperator = readLineSync.question("Write your operator: ");
-  console.log(selectedOperator);
   if (validateOperator(selectedOperator) === false) {
     return getOperator();
   }
   return selectedOperator;
 }
 
-function calculateResult() {
+let numberOne = getNumber("first");
+let operator = getOperator();
+let numberTwo = getNumber("second");
+
+function calculateResult(numberOne, operator, numberTwo) {
   let result = 0;
   if (operator === "+") {
     result = numberOne + numberTwo;
@@ -55,6 +54,9 @@ function calculateResult() {
   }
   return result;
 }
-console.log(calculateResult());
-
-//v2 is done
+console.log(
+  "Result is:",
+  "\x1b[32m",
+  calculateResult(numberOne, operator, numberTwo),
+  "\x1b[0m"
+);
